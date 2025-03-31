@@ -1,9 +1,12 @@
 "use server";
-export async function gerarTabelaDebitos(debitos: IDebitoCDT[]): Promise<string> {
+
+import { Debito } from "@/app/types/debito";
+
+export async function gerarTabelaDebitos(debitos: Debito[]): Promise<string> {
   let tabelaHTML = "";
 
-  const gruposPorCNPJ: Record<string, IDebitoCDT[]> = debitos.reduce<
-    Record<string, IDebitoCDT[]>
+  const gruposPorCNPJ: Record<string, Debito[]> = debitos.reduce<
+    Record<string, Debito[]>
   >((acc, debito) => {
     if (!acc[debito.sujeitoPassivo]) {
       acc[debito.sujeitoPassivo] = [];
@@ -22,9 +25,9 @@ export async function gerarTabelaDebitos(debitos: IDebitoCDT[]): Promise<string>
               </thead>
               <tbody>`;
 
-    const gruposPorTipoDebito: Record<string, IDebitoCDT[]> = gruposPorCNPJ[
+    const gruposPorTipoDebito: Record<string, Debito[]> = gruposPorCNPJ[
       cnpj
-    ].reduce<Record<string, IDebitoCDT[]>>((acc, debito) => {
+    ].reduce<Record<string, Debito[]>>((acc, debito) => {
       if (!acc[debito.tipoDebito]) {
         acc[debito.tipoDebito] = [];
       }
@@ -60,4 +63,3 @@ export async function gerarTabelaDebitos(debitos: IDebitoCDT[]): Promise<string>
 
   return tabelaHTML;
 }
- 

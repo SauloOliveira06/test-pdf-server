@@ -1,4 +1,4 @@
-interface IDebitoCDT {
+export interface Debito {
   sujeitoPassivo: string;
   tipoDebito: string;
   tipoIdentificador: string;
@@ -7,7 +7,7 @@ interface IDebitoCDT {
   detalhe: string;
 }
 
-interface IRelatorioCDT {
+export interface IRelatorioCDT {
   numeroProtocolo: string;
   codigoAutenticidade: string;
   dataEmissao: string;
@@ -15,6 +15,5 @@ interface IRelatorioCDT {
   situacao: string;
   identificacao: string;
   nomeIdentificacao: string;
-  debitos: IDebitoCDT[];
+  debitos: Debito[];
 }
- 

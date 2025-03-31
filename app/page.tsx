@@ -1,26 +1,27 @@
 "use client";
 import { useState } from "react";
+import { IRelatorioCDT } from "./types/debito";
 
-export const data = {
-  "numeroProtocolo": "123456789",
-  "codigoAutenticidade": "XYZ-987654",
-  "dataEmissao": "2025-03-31",
-  "dataValidade": "2025-06-30",
-  "situacao": "Regular",
-  "identificacao": "12345678000195",
-  "nomeIdentificacao": "Empresa Exemplo LTDA",
-  "debitos": [
+const data: IRelatorioCDT = {
+  numeroProtocolo: "123456789",
+  codigoAutenticidade: "XYZ-987654",
+  dataEmissao: "2025-03-31",
+  dataValidade: "2025-06-30",
+  situacao: "Regular",
+  identificacao: "12345678000195",
+  nomeIdentificacao: "Empresa Exemplo LTDA",
+  debitos: [
     {
-      "sujeitoPassivo": "12345678000195",
-      "tipoSujeitoPassivo": 1073741824,
-      "tipoDebito": "ICMS",
-      "tipoIdentificador": "CNPJ",
-      "numeroIdentificador": "12345678000195",
-      "periodoReferencia": "2024-01",
-      "detalhe": "Débito referente ao período de janeiro/2024"
+      sujeitoPassivo: "12345678000195",
+      tipoDebito: "ICMS",
+      tipoIdentificador: "CNPJ",
+      numeroIdentificador: "12345678000195",
+      periodoReferencia: "2024-01",
+      detalhe: "Débito referente ao período de janeiro/2024"
     }
   ]
 };
+
 
 export default function GerarPDF() {
   const [loading, setLoading] = useState(false);
