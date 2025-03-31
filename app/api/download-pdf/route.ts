@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import fs from "fs";
 import { gerarTabelaDebitos } from "./geradorTabela";
 import path from "path";
-import { chromium } from "playwright-core";
+import { chromium } from "playwright";
+import chromiumVercel from '@sparticuz/chromium';
 
 export async function POST(req: Request) {
   try {
@@ -56,10 +57,11 @@ export async function POST(req: Request) {
       .replace(/{{tipoIdentificador}}/g, data.tipoIdentificador)
       .replace("{{tabelaDebitos}}", tabelaDebitosHTML);
 
-    const browser = await chromium.launch({
-      headless: true,
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    });
+      const browser = await chromium.launch({
+        args: chromiumVercel.args,
+        executablePath: await chromiumVercel.executablePath(),
+        headless: true,
+      });
 
     const page = await browser.newPage();
 
