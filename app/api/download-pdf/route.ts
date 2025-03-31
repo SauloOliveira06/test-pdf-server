@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
-
 import { gerarTabelaDebitos } from "./geradorTabela";
 import path from "path";
 import { chromium } from "playwright-core";
@@ -58,7 +57,6 @@ export async function POST(req: Request) {
       .replace("{{tabelaDebitos}}", tabelaDebitosHTML);
 
     const browser = await chromium.launch({
-      executablePath: require("playwright").chromium.executablePath(),
       headless: true,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });

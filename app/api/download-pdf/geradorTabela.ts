@@ -22,7 +22,7 @@ export async function gerarTabelaDebitos(debitos: IDebitoCDT[]): Promise<string>
               </thead>
               <tbody>`;
 
-    const gruposPorTipoDebito: Record<string, any[]> = gruposPorCNPJ[
+    const gruposPorTipoDebito: Record<string, IDebitoCDT[]> = gruposPorCNPJ[
       cnpj
     ].reduce<Record<string, IDebitoCDT[]>>((acc, debito) => {
       if (!acc[debito.tipoDebito]) {
