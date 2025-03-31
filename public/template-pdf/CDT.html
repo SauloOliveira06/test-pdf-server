@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR"> 
+    <head> 
+        <meta charset="UTF-8" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+        <title>CDT</title> 
+        <link rel="stylesheet" href="CDT.css">
+    </head> 
+    <body> 
+        <div class="a4-page"> 
+            <div class="main-header">
+                <div class="logo-container">
+                    <img src="https://th.bing.com/th/id/R.8030976089b467753def03d713c629a5?rik=KCGx1JzXp6k8%2bg&pid=ImgRaw&r=0" width="60px" alt="SEF logo" />
+                </div>
+                <div class="titulo">
+                    SECRETARIA DE ESTADO DE FAZENDA DE MINAS GERAIS
+                </div>
+                <div class="logo-container">
+                    <img src="https://rpps.fazenda.mg.gov.br/rpps/resources/images/logo_sef.png" width="60px" alt="SEF logo" />
+                </div>
+
+            </div>
+        
+            <div class="conteudo">
+                <div class="situacao-outer-container">
+                    <div class="situacao-container">
+                        Certidão de Débitos Tributários
+                        <div class="situacao">{{situacao}}</div>
+                    </div>
+                    <div class="identificacao-container">
+                        <div class="key-value">
+                            <div class="key">Data de emissão</div>
+                            <div class="value">{{dataEmissao}}</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Data de validade</div>
+                            <div class="value">{{dataValidade}}</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Inscrição Estadual</div>
+                            <div class="value"> - </div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">CNPJ</div>
+                            <div class="value">{{identificacao}}</div>
+                        </div>
+                        <div class="key-value">
+                            <div class="key">Razão social</div>
+                            <div class="value">{{nomeIdentificacao}}</div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="termos">
+                    <p>
+                        Ressalvado o direito de a Fazenda Pública Estadual cobrar e inscrever quaisquer dívidas de responsabilidade do sujeito passivo acima
+                        identificado que vierem a ser apuradas, é certificado que:
+                    </p>
+                    <p>
+                        1. Constam débitos relativos a tributos administrados pela Fazenda Pública Estadual e/ou Advocacia Geral do Estado;
+                    </p>
+                    <p>
+                        2. No caso de utilização para lavratura de escritura pública ou registro de formal de partilha, de carta de ajudicação expedida em
+                        autos de inventário ou de arrolamento, de sentença em ação de separação judicial, divórcio ou de partilha de bens na união estável
+                        e de escritura pública de doação de bens imóveis, esta certidão somente terá validade se acomapnhada da Certidão de Pagamento /
+                        Desoneração do ITCD, prevista no artigo 39 do Decreto 43.981/2005.
+                    </p>
+                    <p>
+                        Certidão válida para todos os estabelecimentos da empresa, alcançando débitos tributários do sujeito passivo em Fase Administrativa
+                        ou inscritos em Dívida Ativa.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="controle-outer-container">
+                <div class="qr-code-container">
+                    <td  class="image-header-cell">
+                        <img src="{{qrCode}}" width="60px" alt="SEF logo" />
+                    </td>
+                </div>
+                <div class="controle-container">
+                    <p>A autenticidade desta certidão pode ser confirmada no sítio da Secretaria de Estado de Fazenda de Minas Gerais,
+                        em https://www.fazenda.mg.gov.br > Certidão de Débitos Tributários > Certificar documentos</p>
+                    <div class="key-value">
+                        <div class="key">Código de controle de autenticidade</div>
+                        <div class="value">{{codigoAutenticidade}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="paginacao">1/2</div>
+        </div>
+
+        <div class="a4-page"> 
+            <div class="conteudo">
+                <table class="strong header">
+                    <tbody>
+                        <tr>
+                            <td rowspan="2" class="image-header-cell">
+                                <img src="https://th.bing.com/th/id/R.8030976089b467753def03d713c629a5?rik=KCGx1JzXp6k8%2bg&pid=ImgRaw&r=0" width="auto" alt="SEF logo" />
+                            </td>
+                            <th scope="col" colspan="2" class="titulo">EXTRATO DE DÉBITOS</th> 
+                            <td>
+                                <div class="key-value">
+                                    <div class="key">Data de emissão</div>
+                                    <div class="value">{{dataEmissao}}</div>
+                                </div>
+                            </td>  
+                            <td>
+                                <div class="key-value">
+                                    <div class="key">Data de validade</div>
+                                    <div class="value">{{dataValidade}}</div>
+                                </div>
+                            </td>           
+                            <td rowspan="2" class="image-header-cell qr-code-cell">
+                                <img src="{{qrCode}}" alt="qr-code" width="60px" /> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="key-value">
+                                    <div class="key">Razão social</div>
+                                    <div class="value">{{nomeIdentificacao}}</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="key-value">
+                                    <div class="key">CNPJ/CPF/IE</div>
+                                    <div class="value">{{identificacao}}</div>
+                                </div>
+                            </td>        
+                            <td colspan="2">
+                                <div class="key-value">
+                                    <div class="key">Código de controle de autenticidade</div>
+                                    <div class="value">{{codigoAutenticidade}}</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                {{tabelaDebitos}}
+            </div>
+        </div>
+    </body>
+</html>
