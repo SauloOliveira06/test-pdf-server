@@ -1,9 +1,9 @@
 "use server";
-export async function gerarTabelaDebitos(debitos: any[]): Promise<string> {
+export async function gerarTabelaDebitos(debitos: IDebitoCDT[]): Promise<string> {
   let tabelaHTML = "";
 
-  const gruposPorCNPJ: Record<string, any[]> = debitos.reduce<
-    Record<string, any[]>
+  const gruposPorCNPJ: Record<string, IDebitoCDT[]> = debitos.reduce<
+    Record<string, IDebitoCDT[]>
   >((acc, debito) => {
     if (!acc[debito.sujeitoPassivo]) {
       acc[debito.sujeitoPassivo] = [];
@@ -24,7 +24,7 @@ export async function gerarTabelaDebitos(debitos: any[]): Promise<string> {
 
     const gruposPorTipoDebito: Record<string, any[]> = gruposPorCNPJ[
       cnpj
-    ].reduce<Record<string, any[]>>((acc, debito) => {
+    ].reduce<Record<string, IDebitoCDT[]>>((acc, debito) => {
       if (!acc[debito.tipoDebito]) {
         acc[debito.tipoDebito] = [];
       }

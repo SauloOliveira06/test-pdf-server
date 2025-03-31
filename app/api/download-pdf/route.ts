@@ -34,10 +34,6 @@ export async function POST(req: Request) {
 
     html = html.replace("</head>", `<style>${css}</style></head>`);
 
-    const baseURL =
-      "https://www2.fazenda.mg.gov.br/sol/ctrl/SOL/RETAGUAR/CERTIFICAR_DOCUMENTO?ACAO=VISUALIZAR";
-    // const qrCodeDataURL = await QRCode.toDataURL(baseURL);
-
     const tabelaDebitosHTML = await gerarTabelaDebitos(data.debitos);
 
     const formatIdentification = (value: string) => {
@@ -57,7 +53,6 @@ export async function POST(req: Request) {
       .replace(/{{identificacao}}/g, formatIdentification(data.identificacao))
       .replace(/{{codigoAutenticidade}}/g, data.codigoAutenticidade)
       .replace(/{{nomeIdentificacao}}/g, data.nomeIdentificacao ?? "")
-      // .replace(/{{qrCode}}/g, qrCodeDataURL)
       .replace(/{{sujeitoPassivo}}/g, data.sujeitoPassivo)
       .replace(/{{tipoIdentificador}}/g, data.tipoIdentificador)
       .replace("{{tabelaDebitos}}", tabelaDebitosHTML);
